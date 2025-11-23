@@ -65,6 +65,9 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
+    /*
+    * Below is the main bean which is responsible for
+    * setting up the user password and authenticates it to do stuff*/
     @Bean
     public AuthenticationProvider authenticationProvider(){
         DaoAuthenticationProvider authenticationProvider=new DaoAuthenticationProvider();
