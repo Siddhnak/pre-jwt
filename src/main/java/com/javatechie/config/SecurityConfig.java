@@ -25,6 +25,13 @@ public class SecurityConfig {
 
     @Bean
     //authentication
+    /*This bean tells Spring how to load a user from your data source (DB most likely).
+
+UserInfoUserDetailsService will:
+
+Take the username
+Fetch a UserInfo entity from DB
+Wrap it in UserInfoUserDetails (your custom UserDetails).*/
     public UserDetailsService userDetailsService() {
 //        UserDetails admin = User.withUsername("Basant")
 //                .password(encoder.encode("Pwd1"))
@@ -66,8 +73,7 @@ public class SecurityConfig {
     }
 
     /*
-    * Below is the main bean which is responsible for
-    * setting up the user password and authenticates it to do stuff*/
+    * main login engine| */
     @Bean
     public AuthenticationProvider authenticationProvider(){
         DaoAuthenticationProvider authenticationProvider=new DaoAuthenticationProvider();
